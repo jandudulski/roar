@@ -4,7 +4,7 @@ _Resource-Oriented Architectures in Ruby._
 
 [![Gitter Chat](https://badges.gitter.im/trailblazer/chat.svg)](https://gitter.im/trailblazer/chat)
 [![TRB Newsletter](https://img.shields.io/badge/TRB-newsletter-lightgrey.svg)](http://trailblazer.to/newsletter/)
-[![Build Status](https://travis-ci.org/trailblazer/roar.svg?branch=master)](https://travis-ci.org/trailblazer/roar)
+[![Build Status](https://github.com/trailblazer/roar/actions/workflows/ci.yml/badge.svg)](https://github.com/trailblazer/roar/actions)
 [![Gem Version](https://badge.fury.io/rb/roar.svg)](http://badge.fury.io/rb/roar)
 
 ## Table of Contents
@@ -296,7 +296,7 @@ We're currently [working on](https://github.com/trailblazer/roar/issues/85) bett
 
 ## Coercion
 
-Roar provides coercion with the [virtus](https://github.com/solnic/virtus) gem.
+Roar provides coercion with the [dry-types](https://dry-rb.org/gems/dry-types/) gem.
 
 ```ruby
 require 'roar/coercion'
@@ -307,11 +307,11 @@ class SongRepresenter < Roar::Decorator
   include Roar::Coercion
 
   property :title
-  property :released_at, type: DateTime
+  property :released_at, type: Types::DateTime
 end
 ```
 
-The `:type` option allows to set a virtus-compatible type.
+The `:type` option allows to set a dry-types-compatible type.
 
 ```ruby
 song = Song.new
